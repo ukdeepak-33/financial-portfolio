@@ -1,8 +1,11 @@
 services:
   - type: web
-    name: financial-portfolio-frontend
+    name: financial-portfolio
     env: node
-    buildCommand: cd frontend && npm install && npm run build
+    buildCommand: |
+      cd frontend && \
+      npm install && \
+      npm run build
     startCommand: serve -s frontend/build
     staticPublish: frontend/build/
     envVars:
