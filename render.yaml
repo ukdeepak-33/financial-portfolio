@@ -6,7 +6,7 @@ services:
       cd frontend && \
       npm install && \
       npm run build
-    startCommand: serve -s frontend/build
+    startCommand: serve -s frontend/build -l $PORT
     staticPublish: frontend/build/
     envVars:
       - key: REACT_APP_SUPABASE_URL
