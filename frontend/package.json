@@ -1,1 +1,3 @@
-# add package.json code
+"dependencies": {
+  "serve": "^14.2.0"
+}
