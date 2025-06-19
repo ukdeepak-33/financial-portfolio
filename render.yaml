@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: financial-portfolio-frontend
+    env: node
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: serve -s frontend/build
+    staticPublish: frontend/build/
+    envVars:
+      - key: REACT_APP_SUPABASE_URL
+        value: your-supabase-url
+      - key: REACT_APP_SUPABASE_ANON_KEY
+        value: your-supabase-key
