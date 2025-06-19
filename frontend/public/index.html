@@ -1,1 +1,42 @@
-add html code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="AI-powered financial portfolio dashboard"
+    />
+    <title>Financial Portfolio Tracker</title>
+    
+    <!-- Preconnect to Supabase for faster auth loading -->
+    <link rel="preconnect" href="https://your-supabase-url.supabase.co" />
+    
+    <!-- Favicon (optional) -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    
+    <!-- Fonts (optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Mobile styling -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+  <body>
+    <noscript>
+      <strong>
+        This application requires JavaScript to work. Please enable it to continue.
+      </strong>
+    </noscript>
+    <div id="root"></div>
+    
+    <!-- Load environment variables before React mounts -->
+    <script>
+      window.env = {
+        SUPABASE_URL: '%REACT_APP_SUPABASE_URL%',
+        SUPABASE_KEY: '%REACT_APP_SUPABASE_ANON_KEY%'
+      };
+    </script>
+  </body>
+</html>
