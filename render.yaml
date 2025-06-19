@@ -4,12 +4,8 @@ services:
     env: node
     buildCommand: |
       cd frontend && \
+      npm install -g serve && \
       npm install && \
       npm run build
-    startCommand: serve -s frontend/build -l $PORT
+    startCommand: serve -s build -l $PORT
     staticPublish: frontend/build/
-    envVars:
-      - key: REACT_APP_SUPABASE_URL
-        value: your-supabase-url
-      - key: REACT_APP_SUPABASE_ANON_KEY
-        value: your-supabase-key
