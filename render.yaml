@@ -9,3 +9,10 @@ services:
       npm run build
     startCommand: serve -s build -l $PORT
     staticPublish: frontend/build/
+    envVars:
+      - key: REACT_APP_SUPABASE_URL
+        value: your-supabase-url
+      - key: REACT_APP_SUPABASE_ANON_KEY
+        value: your-supabase-key
+      - key: REACT_APP_OPENAI_KEY
+        value: your-openai-key
