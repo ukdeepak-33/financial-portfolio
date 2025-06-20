@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portfolio AI Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>My AI Financial Dashboard</h1>
+    <input type="text" id="tickersInput" placeholder="Enter tickers: AAPL,GOOG,TSLA" />
+    <button onclick="loadPortfolio()">Load</button>
+
+    <canvas id="portfolioChart" width="600" height="300"></canvas>
+    <div id="recommendations"></div>
+
+    <script>
+        async function loadPortfolio() {
+            const tickers = document.getElementById("tickersInput").value.split(",");
+            const response = await fetch("/api/portfolio", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ tickers }),
+            });
+            const data = await response.json();
+
+            const labels = Object.values(data)[0].map((_, i) => `Day ${i}`);
+            const datasets = Object.entries(data).map(([ticker, values]) => ({
+                label: ticker,
+                data: values,
+                borderColor: '#' + Math.floor(Math.random()*16777215).toString(16),
+                fill: false
+            }));
+
+            new Chart(document.getElementById("portfolioChart"), {
+                type: "line",
+                data: { labels, datasets },
+                options: { responsive: true }
+            });
+
+            const recRes = await fetch("/api/recommend", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ tickers }),
+            });
+            const recs = await recRes.json();
+            document.getElementById("recommendations").innerHTML = "<h3>AI Suggestions:</h3>" +
+                Object.entries(recs).map(([k,v]) => `<p>${k}: ${(v*100).toFixed(2)}%</p>`).join("");
+        }
+    </script>
+</body>
+</html>
