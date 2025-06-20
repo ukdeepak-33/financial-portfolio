@@ -1,17 +1,10 @@
 services:
   - type: web
-    name: financial-portfolio
-    env: node
-    buildCommand: |
-      cd frontend && \
-      npm install && \
-      npm run build
-    startCommand: npm run start:prod
-    staticPublish: frontend/build/
+    name: portfolio-dashboard
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
     envVars:
-      - key: REACT_APP_SUPABASE_URL
-        value: your-supabase-url
-      - key: REACT_APP_SUPABASE_ANON_KEY
-        value: your-supabase-key
-      - key: PORT
-        value: 10000
+      - key: PYTHON_VERSION
+        value: 3.11
