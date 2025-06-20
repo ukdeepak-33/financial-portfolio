@@ -1,6 +1,10 @@
 Flask
 yfinance
 gunicorn
+numpy
+pandas
+matplotlib
+scikit-learn
 git+https://github.com/robertmartin8/PyPortfolioOpt.git
 
 
