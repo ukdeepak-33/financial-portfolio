@@ -1,3 +1,5 @@
-Flask
+flask
 yfinance
-pypfopt
+pypfopt==1.5.4
+gunicorn
+
