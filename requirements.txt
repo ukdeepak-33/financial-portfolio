@@ -1,5 +1,6 @@
-flask
+Flask
 yfinance
-pypfopt==1.5.2
 gunicorn
+git+https://github.com/robertmartin8/PyPortfolioOpt.git
+
 
