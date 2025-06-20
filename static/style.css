@@ -1,25 +1,37 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f5f7fa;
-    color: #333;
+  font-family: sans-serif;
+  margin: 30px;
+  background: #f4f4f4;
+  color: #333;
+}
+h1 {
+  font-size: 24px;
 }
 input {
-    padding: 10px;
-    font-size: 16px;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
 }
 button {
-    padding: 10px 20px;
-    background-color: #1e88e5;
-    color: white;
-    border: none;
-    cursor: pointer;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
 }
 button:hover {
-    background-color: #0d47a1;
+  background: #0056b3;
 }
 canvas {
-    margin-top: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
 }
+#insights, #recommendations {
+  margin-top: 20px;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
