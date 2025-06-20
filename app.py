@@ -1,6 +1,6 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, request, jsonify
 import yfinance as yf
-from ai_recommend import generate_recommendations
+from ai_recommend import get_portfolio_insights, generate_recommendations
 
 app = Flask(__name__)
 
@@ -11,12 +11,11 @@ def index():
 @app.route("/api/portfolio", methods=["POST"])
 def portfolio_data():
     tickers = request.json.get("tickers", [])
-    data = {}
-    for ticker in tickers:
-        stock = yf.Ticker(ticker)
-        hist = stock.history(period="1mo")["Close"]
-        data[ticker] = hist.tolist()
-    return jsonify(data)
+    if not tickers:
+        return jsonify({"error": "No tickers provided"}), 400
+
+    insights = get_portfolio_insights(tickers)
+    return jsonify(insights)
 
 @app.route("/api/recommend", methods=["POST"])
 def recommend():
