@@ -1,5 +1,5 @@
 flask
 yfinance
-pypfopt==1.5.3
+pypfopt==1.5.2
 gunicorn
 
