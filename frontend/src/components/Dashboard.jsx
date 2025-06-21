@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 
-const API_URL = "https://your-render-api.onrender.com/api";
+const API_URL = "https://portfolio-api.onrender.com/api";
 
 export default function Dashboard() {
   const [tickers, setTickers] = useState("");
